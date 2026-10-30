@@ -46,7 +46,7 @@ export const previewMarkup = `
    <fieldset class="tattoo-zones"><legend>¿Dónde quieres probarlo?</legend><div class="tattoo-zone-list">${focusZones.map(zone=>`<button type="button" data-zone="${zone.id}" aria-pressed="${zone.id==='body'}">${zone.label}</button>`).join('')}</div></fieldset>
    </div>
    <div class="tattoo-tool-panel" id="designs-panel" role="tabpanel" aria-labelledby="designs-tab" data-tool-panel="designs" hidden>
-   <fieldset><legend class="tattoo-catalog-label">Diseños de ejemplo</legend><div class="tattoo-designs">${designs.map(d=>`<button type="button" data-design="${d.id}" aria-label="Añadir ${d.name}"><img src="/designs/${d.id}.svg" alt="" loading="lazy"><span>${d.name}<b aria-hidden="true">+</b></span></button>`).join('')}</div></fieldset>
+   <fieldset><legend class="tattoo-catalog-label">Diseños de ejemplo</legend><div class="tattoo-designs">${designs.map(d=>`<button type="button" data-design="${d.id}" aria-label="Añadir ${d.name}"><img src="${import.meta.env.BASE_URL}designs/${d.id}.svg" alt="" loading="lazy"><span>${d.name}<b aria-hidden="true">+</b></span></button>`).join('')}</div></fieldset>
    <fieldset class="tattoo-upload"><legend>Prueba tu diseño</legend><input id="tattoo-upload-input" type="file" accept="image/png,image/jpeg,image/webp,image/svg+xml" hidden><button type="button" data-action="upload">Subir imagen</button><p>PNG, JPG, WebP o SVG. Puedes añadir varias piezas.</p></fieldset>
    </div>
    <div class="tattoo-adjust"><label for="tattoo-size">Tamaño <output id="size-value">100%</output></label><input id="tattoo-size" type="range" min="10" max="180" value="100" step="5"><label for="tattoo-rotation">Giro <output id="rotation-value">0°</output></label><input id="tattoo-rotation" type="range" min="-180" max="180" value="0" step="5"></div>
@@ -176,7 +176,7 @@ async function init(root) {
   }).join('') || '<p class="tattoo-empty">Añade un diseño para empezar.</p>';
  }
  function catalogMarkup(design) {
-  const image = design.preview ?? `/designs/${design.id}.svg`;
+  const image = design.preview ?? `${import.meta.env.BASE_URL}designs/${design.id}.svg`;
   return `<button type="button" data-design="${design.id}" aria-label="Añadir ${design.name}"><img src="${image}" alt="" loading="lazy"><span>${design.name}<b aria-hidden="true">+</b></span></button>`;
  }
  function renderCatalog() { catalog.innerHTML = designs.map(catalogMarkup).join(''); }
@@ -247,7 +247,7 @@ async function init(root) {
   placeAt(rect.left + (point.x + 1) * rect.width / 2 + (event.key === 'ArrowLeft' ? -step : event.key === 'ArrowRight' ? step : 0), rect.top + (1 - point.y) * rect.height / 2 + (event.key === 'ArrowUp' ? -step : event.key === 'ArrowDown' ? step : 0));
  });
  async function geometry(kind) {
-  if (!geometries.has(kind)) { const response = await fetch(`/models/preview/${kind}-anatomical.mesh`); if (!response.ok) throw new Error('Mannequin unavailable'); geometries.set(kind, parseMannequin(await response.arrayBuffer())); }
+  if (!geometries.has(kind)) { const response = await fetch(`${import.meta.env.BASE_URL}models/preview/${kind}-anatomical.mesh`); if (!response.ok) throw new Error('Mannequin unavailable'); geometries.set(kind, parseMannequin(await response.arrayBuffer())); }
   return geometries.get(kind);
  }
  function startComposition() {
@@ -260,7 +260,7 @@ async function init(root) {
   body.geometry = loadedGeometry; state.body = kind; ready = true; loading.hidden = true;
   root.querySelectorAll('[data-body]').forEach(button => button.setAttribute('aria-pressed', button.dataset.body === kind)); startComposition();
  }
- await Promise.all(designs.map(async design => { const texture = await new THREE.TextureLoader().loadAsync(`/designs/${design.id}.svg`); texture.colorSpace = THREE.SRGBColorSpace; texture.anisotropy = renderer.capabilities.getMaxAnisotropy(); textures.set(design.id, texture); }));
+ await Promise.all(designs.map(async design => { const texture = await new THREE.TextureLoader().loadAsync(`${import.meta.env.BASE_URL}designs/${design.id}.svg`); texture.colorSpace = THREE.SRGBColorSpace; texture.anisotropy = renderer.capabilities.getMaxAnisotropy(); textures.set(design.id, texture); }));
  root.querySelectorAll('[data-body]').forEach(button => button.addEventListener('click', () => changeBody(button.dataset.body).catch(() => { loading.hidden = true; ready = Boolean(selected()); feedback.textContent = 'No se pudo cargar el cuerpo. Inténtalo de nuevo.'; })));
  root.querySelectorAll('[data-zone]').forEach(button => button.addEventListener('click', () => { finishDrag(); focusZone(button.dataset.zone); feedback.textContent = `${button.textContent} en foco. Añade o mueve una pieza en esta zona.`; }));
  catalog.addEventListener('click', event => { const button = event.target.closest('[data-design]'); if (!button) return;

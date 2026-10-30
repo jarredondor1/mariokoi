@@ -43,3 +43,7 @@ Las cuatro ediciones de koi están en `assets/ornamental-school.blend`; los arch
 Los maniquíes pueden reconstruirse con `node scripts/create-mannequins.mjs` utilizando las fuentes incluidas. Los diseños del simulador son ejemplos, no obras atribuidas al artista.
 
 Consulta [ASSET_CREDITS.md](ASSET_CREDITS.md) para las referencias y licencias.
+
+## GitHub Pages
+
+El workflow `.github/workflows/deploy.yml` compila y publica `dist/` en cada push a `main`. En Settings → Pages, Source debe ser **GitHub Actions**. La compilación en Actions usa la ruta `/mariokoi/`; en desarrollo local utiliza `/`.

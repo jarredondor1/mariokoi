@@ -30,4 +30,4 @@ export const workCollections = {
  tattoos: collections.tattoos, nature: collections.nature, black: collections.black, murals: collections.murals,
 };
 
-export const portfolioImage = item => `/images/portfolio/${item.image}.jpg`;
+export const portfolioImage = item => `${import.meta.env.BASE_URL}images/portfolio/${item.image}.jpg`;

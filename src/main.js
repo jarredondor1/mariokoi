@@ -17,7 +17,7 @@ document.querySelector('#app').innerHTML = `
   <div class="pond" id="pond" role="img" aria-label="Seis koi ornamentales nadan por el fondo de toda la experiencia"></div>
   <section class="entry" id="entry" aria-label="Entrada al estanque">
     <figure class="entry-art">
-      <img src="/images/entrada-tatuador-koi.jpg" width="1536" height="1024" fetchpriority="high" decoding="async" alt="Un tatuador dibuja un koi con un hilo de tinta roja. Ilustración en trazos marfil y rojo." />
+      <img src="${import.meta.env.BASE_URL}images/entrada-tatuador-koi.jpg" width="1536" height="1024" fetchpriority="high" decoding="async" alt="Un tatuador dibuja un koi con un hilo de tinta roja. Ilustración en trazos marfil y rojo." />
     </figure>
     <button class="entry-enter" type="button" disabled>
       <span>ENTRAR</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg>
@@ -53,7 +53,7 @@ document.querySelector('#app').innerHTML = `
     <div class="artist-visual">
       <div class="artist-paper" aria-hidden="true"></div>
       <figure class="artist-print">
-        <div class="artist-photo-window"><img src="/images/mario-koi-editorial.jpg" alt="Mario Koi concentrado mientras tatúa una pieza ilustrativa a color" loading="lazy" width="1024" height="1536"></div>
+        <div class="artist-photo-window"><img src="${import.meta.env.BASE_URL}images/mario-koi-editorial.jpg" alt="Mario Koi concentrado mientras tatúa una pieza ilustrativa a color" loading="lazy" width="1024" height="1536"></div>
         <figcaption><span class="artist-photo-caption">Mario, en el estudio</span><span>KOI</span></figcaption>
       </figure>
       <span class="artist-side-note" aria-hidden="true">EL DIBUJO ENCUENTRA SU PIEL</span>

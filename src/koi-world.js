@@ -108,7 +108,7 @@ export function mountKoiWorld(element, status, onReady = () => {}, workSection) 
       swimTime: { value: index * 1.7 }, swimAmp: { value: 0 },
     };
     fishes.push(fish);
-    loader.load(`/models/ornamental-${slug}.glb`, gltf => {
+    loader.load(`${import.meta.env.BASE_URL}models/ornamental-${slug}.glb`, gltf => {
       gltf.scene.rotation.x = Math.PI / 2;
       gltf.scene.traverse(object => {
         if (!object.isMesh) return;
