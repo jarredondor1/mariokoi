@@ -1,0 +1,183 @@
+/* Shared editorial rhythm across the artist's studio and interactive worktable. */
+:root { --paper: #e8e3d7; --ink: #172a22; --muted: #b9c2b7; --gutter: clamp(24px, 7vw, 112px); }
+button, a, input { -webkit-tap-highlight-color: transparent; }
+section[id] { scroll-margin-top: 24px; }
+.site-header { justify-content: space-between; padding-inline: var(--gutter); }
+.site-nav { display: flex; align-items: center; gap: 32px; }
+.site-nav a { display: inline-flex; align-items: center; min-height: 44px; font-size: 12px; color: #d5dbcf; transition: color .2s; }
+.site-nav a:hover { color: #ed9184; }
+.contact { min-height: 44px; border-color: var(--artist-red); }
+.about, .work, .tattoo-lab, .studio-footer { padding-inline: var(--gutter); }
+.about { gap: clamp(48px, 7vw, 112px); padding-block: clamp(80px, 9vw, 136px); background: #0a1914ed; border-color: #32443a; }
+.about::before, .work::before { content: none; }
+.about-copy h2 { font-size: clamp(64px, 7vw, 100px); margin-bottom: 40px; }
+.about-name { font-size: clamp(28px, 3vw, 43px); line-height: 1.15; }
+.about-role { color: #c1b49d; font-size: 10px; letter-spacing: .12em; }
+.about-detail { color: var(--muted); }
+.about-proof { font-size: 12px; }
+.about-contact { min-height: 44px; font-size: 11px; letter-spacing: .13em; border-color: var(--artist-red); }
+.about-portrait { max-width: 560px; }
+.portrait-frame { border: 0; aspect-ratio: 4 / 5; }
+.about-portrait figcaption { font-size: 9px; line-height: 1.6; letter-spacing: .09em; }
+.work { min-height: auto; padding-block: clamp(72px, 8vw, 120px); background: var(--paper); color: var(--ink); border: 0; }
+.work-heading h2 { color: var(--ink); font-size: clamp(48px, 5.7vw, 84px); line-height: 1.04; }
+.work-heading h2 em { font-weight: 400; color: #a33f35; }
+.work-heading p { color: #576257; font-size: 14px; max-width: 210px; }
+.work-browser { margin-top: 44px; }
+.work-tabs { gap: 30px; margin-bottom: 0; border-bottom: 1px solid #172a222e; }
+.work-tabs button { padding: 12px 0 17px; min-height: 48px; color: #596056; border: 0; border-bottom: 2px solid transparent; font-size: 14px; background: transparent; }
+.work-tabs button[aria-pressed="true"] { color: #a33f35; border-bottom-color: #a33f35; }
+.work-tabs button:hover { color: #a33f35; }
+.work-carousel { border: 0; padding-top: 28px; }
+.work-piece { grid-template-columns: minmax(0, 1.35fr) minmax(0, .65fr); min-height: 440px; border: 0; gap: 0; }
+.work-piece::before { content: none; }
+.work-slide-art { position: relative; min-height: 440px; height: 440px; width: 100%; padding: 28px; border: 0; background: #d9d3c4; cursor: zoom-in; }
+.work-slide-art img { display: block; width: 72%; height: 340px; object-fit: contain; }
+.work-slide-art:hover img { transform: scale(1.035); }
+.work-expand { position: absolute; display: flex; gap: 12px; align-items: center; right: 20px; bottom: 18px; color: #465247; font: 12px 'Syne', sans-serif; }
+.work-expand svg { width: 17px; fill: none; stroke: currentColor; stroke-width: 1.4; }
+.work-slide-copy { padding: 36px 0 36px clamp(32px, 5vw, 80px); justify-content: center; background: transparent; }
+.work-piece h3 { color: var(--ink); font-size: clamp(42px, 4.8vw, 70px); margin-bottom: 18px; letter-spacing: -.035em; }
+.work-slide-medium { color: #a33f35; margin-bottom: 22px; font-size: 10px; }
+.work-slide-copy > p:not(.work-slide-medium) { color: #576257; font-size: 15px; line-height: 1.8; }
+.work-slide-link { color: #a33f35; font-size: 13px; margin-top: 28px; min-height: 44px; }
+.work-carousel-footer { grid-template-columns: minmax(0, 1fr) auto; gap: 24px; margin-top: 18px; }
+.work-carousel-caption { display: none; }
+.work-project-list { display: flex; gap: 26px; }
+.work-project-list button { color: #62695f; border: 0; min-height: 44px; font-size: 12px; white-space: normal; }
+.work-project-list button[aria-pressed="true"] { color: var(--ink); }
+.work-project-list button .project-dot { flex: 0 0 5px; height: 5px; border-radius: 50%; background: #a4a79a; }
+.work-project-list button[aria-pressed="true"] .project-dot { background: #a33f35; }
+.work-carousel-controls button { width: 44px; height: 44px; border-color: #8e9689; color: var(--ink); }
+.work-example-note { font-size: 12px; line-height: 1.7; color: #62695f; margin: 32px 0 12px; }
+.work-contact { color: var(--ink); border-color: #a33f35; font-size: 11px; letter-spacing: .12em; min-height: 44px; margin-top: 0; }
+.work-contact:hover { color: #a33f35; border-color: #a33f35; }
+.tattoo-lab { padding-block: clamp(72px, 8vw, 120px); background: #0b1915; border: 0; }
+.tattoo-heading { width: 100%; max-width: none; margin-bottom: 36px; }
+.tattoo-heading h2 { font-size: clamp(48px, 5.7vw, 84px); letter-spacing: -.045em; }
+.tattoo-heading p { color: var(--muted); }
+.tattoo-workspace { width: 100%; max-width: none; grid-template-columns: minmax(0, 1fr) 390px; height: clamp(620px, 80svh, 820px); border-color: #34483c; }
+.tattoo-stage { height: 100%; min-height: 0; }
+.tattoo-tools { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #607062 transparent; padding: 22px; gap: 20px; }
+.tattoo-tools legend { font-size: 12px; margin-bottom: 10px; color: #e6e5d9; }
+.tattoo-guide { color: var(--muted); font-size: 12px; }
+.tattoo-zone-list { gap: 5px; }
+.tattoo-zone-list button { min-height: 40px; font-size: 11px; border-color: #8e4a40; }
+.tattoo-toggle button { font-size: 13px; }
+.tattoo-designs { gap: 8px; }
+.tattoo-designs img { height: 66px; }
+.tattoo-designs span { display: grid; min-height: 38px; place-items: center; padding: 5px 3px; white-space: normal; font-size: 10px; line-height: 1.35; }
+.tattoo-upload { grid-template-columns: auto minmax(0,1fr); }
+.tattoo-upload button { min-height: 44px; font-size: 12px; }
+.tattoo-upload p { font-size: 11px; }
+.tattoo-adjust input { min-height: 24px; }
+.tattoo-composition-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.tattoo-composition-item { grid-template-columns: minmax(0,1fr) 36px; min-height: 44px; }
+.tattoo-composition-item [data-select-tattoo] span { display: none; }
+.tattoo-actions { margin-top: 0; }
+.tattoo-actions button { min-height: 44px; font-size: 12px; }
+.tattoo-views button { min-height: 44px; }
+.tattoo-footnote { font-size: 12px; color: var(--muted); max-width: none; }
+.studio-footer { position: relative; background: #071310; padding-block: clamp(72px, 8vw, 120px) 28px; border-top: 1px solid #32443a; }
+.footer-invitation { display: grid; grid-template-columns: 1.5fr 1fr; align-items: end; gap: 7vw; padding-bottom: 80px; }
+.footer-invitation h2 { margin: 0; color: var(--paper); font: 400 clamp(48px, 5.7vw, 84px)/1.08 'Bodoni Moda', serif; letter-spacing: -.04em; }
+.footer-invitation h2 em { color: var(--artist-red); font-weight: 400; }
+.footer-invitation p { max-width: 36ch; color: var(--muted); font-size: 15px; line-height: 1.8; margin: 0 0 24px; }
+.footer-contact { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 48px; border-bottom: 1px solid var(--artist-red); font-size: 16px; }
+.footer-contact svg { width: 22px; fill: none; stroke: var(--artist-red); stroke-width: 1.4; transition: transform .2s; }
+.footer-contact:hover svg { transform: translate(3px,-3px); }
+.footer-baseline { display: flex; align-items: center; gap: 28px; border-top: 1px solid #32443a; padding-top: 20px; color: #b2beaf; font-size: 11px; }
+.footer-baseline span { margin-right: auto; }
+.footer-baseline a { display: inline-flex; min-height: 44px; align-items: center; }
+.is-viewer-open { overflow: hidden; }
+.work-viewer { width: min(960px,calc(100vw - 48px)); max-height: calc(100svh - 48px); padding: 0; border: 0; color: var(--ink); background: var(--paper); }
+.work-viewer::backdrop { background: #020b08e8; backdrop-filter: blur(8px); }
+.viewer-close { position: absolute; z-index: 2; top: 16px; right: 16px; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #9eaa9b; color: var(--ink); background: var(--paper); cursor: pointer; }
+.viewer-close svg { width: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.viewer-art { display: grid; place-items: center; height: min(62svh,600px); padding: 50px; background: #d9d3c4; }
+.viewer-art img { width: 100%; height: 100%; min-height: 0; object-fit: contain; }
+.viewer-caption { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 32px; }
+.viewer-caption h2 { font: 400 36px/1.1 'Bodoni Moda',serif; margin: 0 0 8px; }
+.viewer-caption p { font-size: 12px; margin: 0; color: #576257; line-height: 1.6; }
+.viewer-controls { display: flex; align-items: center; gap: 16px; flex-shrink: 0; }
+.viewer-controls button { width: 44px; height: 44px; border: 1px solid #8e9689; color: var(--ink); background: transparent; font-size: 22px; cursor: pointer; }
+.viewer-count { font-size: 12px; }
+@media (max-width: 1050px) {
+  .tattoo-workspace { grid-template-columns: minmax(0,1fr) 350px; }
+  .tattoo-tools { padding: 18px; }
+  .tattoo-zone-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .work-heading h2 { font-size: 6.2vw; }
+}
+@media (max-width: 800px) {
+  :root { --gutter: 24px; }
+  .site-header { height: 90px; gap: 20px; }
+  .site-nav { gap: 18px; }
+  .site-nav a { font-size: 11px; }
+  .contact { font-size: 9px; gap: 10px; letter-spacing: .12em; }
+  .about { grid-template-columns: 1fr; gap: 40px; padding-block: 72px; }
+  .about-portrait { width: 100%; max-width: 560px; order: -1; }
+  .portrait-frame { aspect-ratio: 5 / 6; }
+  .about-copy h2 { font-size: 64px; margin-bottom: 28px; }
+  .about-name { font-size: 34px; }
+  .work, .tattoo-lab { padding-block: 72px; }
+  .work-heading { display: block; }
+  .work-heading h2 { font-size: clamp(42px, 7.8vw, 64px); }
+  .work-heading p { max-width: 100%; margin: 20px 0 0; font-size: 13px; }
+  .work-browser { margin-top: 26px; }
+  .work-tabs { gap: 28px; padding: 0; }
+  .work-piece { display: block; min-height: 0; }
+  .work-slide-art { height: 360px; min-height: 0; }
+  .work-slide-art img { height: 270px; width: 80%; }
+  .work-slide-copy { min-height: 0; padding: 28px 0; }
+  .work-piece h3 { font-size: 48px; }
+  .work-slide-medium { margin-bottom: 14px; }
+  .work-slide-copy > p:not(.work-slide-medium) { font-size: 14px; max-width: 42ch; }
+  .work-slide-link { margin-top: 12px; }
+  .work-carousel-footer { grid-template-columns: 1fr auto; gap: 16px; margin-top: 0; border-top: 1px solid #172a222e; padding-top: 16px; }
+  .work-project-list { grid-column: 1; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .work-project-list button { font-size: 11px; min-height: 36px; }
+  .work-carousel-controls { grid-column: 2; grid-row: 1; align-self: center; }
+  .work-example-note { margin-top: 28px; }
+  .tattoo-heading { display: block; margin-bottom: 28px; }
+  .tattoo-heading h2 { font-size: clamp(44px,8vw,64px); }
+  .tattoo-heading .tattoo-disclaimer { font-size: 12px; max-width: 42ch; margin-top: 16px; }
+  .tattoo-workspace { grid-template-columns: 1fr; height: auto; }
+  .tattoo-stage { position: sticky; top: 0; height: clamp(300px,46svh,440px); min-height: 0; z-index: 2; }
+  .tattoo-tools { overflow: visible; padding: 22px; gap: 22px; }
+  .tattoo-zone-list { grid-template-columns: repeat(5,minmax(0,1fr)); }
+  .tattoo-designs img { height: 80px; }
+  .tattoo-composition-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .tattoo-footnote { margin-top: 18px; }
+  .footer-invitation { grid-template-columns: 1fr; gap: 32px; padding-bottom: 56px; }
+  .footer-invitation h2 { font-size: clamp(48px,8vw,64px); }
+  .footer-baseline { gap: 12px 24px; flex-wrap: wrap; }
+  .footer-baseline span { flex-basis: 100%; }
+  .work-viewer { width: calc(100vw - 24px); max-height: calc(100svh - 24px); }
+  .viewer-art { height: 54svh; padding: 56px 24px 24px; }
+  .viewer-caption { padding: 24px; align-items: start; flex-wrap: wrap; }
+  .viewer-caption h2 { font-size: 32px; }
+}
+@media (max-width: 460px) {
+  :root { --gutter: 20px; }
+  .site-header { align-items: start; padding-top: 20px; gap: 8px; }
+  .site-nav { gap: 14px; flex-wrap: wrap; }
+  .site-nav a { font-size: 12px; }
+  .contact { gap: 6px; font-size: 10px; }
+  .contact svg { width: 15px; }
+  .about-role { font-size: 9px; }
+  .about-portrait figcaption { font-size: 8px; }
+  .work-heading h2 { font-size: 11vw; }
+  .work-slide-art { height: 320px; padding: 24px; }
+  .work-slide-art img { height: 238px; }
+  .work-project-list { gap: 0 14px; }
+  .work-carousel-controls { gap: 5px; }
+  .tattoo-tools { padding: 18px 14px; }
+  .tattoo-zone-list { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .tattoo-designs { gap: 6px; }
+  .tattoo-designs img { height: 60px; }
+  .tattoo-designs span { min-height: 42px; font-size: 10px; }
+  .tattoo-views { left: 12px; top: 12px; }
+  .tattoo-views button { padding: 8px 12px; font-size: 11px; }
+  .tattoo-help { font-size: 11px; }
+  .footer-invitation h2 { font-size: 12vw; }
+}

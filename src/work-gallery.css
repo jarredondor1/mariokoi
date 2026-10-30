@@ -1,0 +1,101 @@
+/* The work is a photographic room: a quiet interface around a moving archive. */
+.work.work-immersive { background:#101f19; color:var(--paper); overflow:hidden; padding-block:56px 44px; }
+.work-immersive .work-heading h2 { color:var(--paper); }
+.work-immersive .work-heading h2 em { color:#e27a68; }
+.work-immersive .work-heading > p { color:#b9c1b5; max-width:30ch; }
+.work-immersive .work-tabs { border-color:#435047; gap:24px; }
+.work-immersive .work-tabs button { color:#c3c9be; }
+.work-immersive .work-tabs button[aria-pressed="true"] { color:#f08a78; border-bottom-color:#f08a78; }
+.gallery-space { position:relative; height:540px; width:100%; overflow:hidden; touch-action:pan-y; cursor:grab; isolation:isolate; }
+.gallery-space.is-dragging, .gallery-space.is-dragging * { cursor:grabbing; }
+.gallery-space > div { position:absolute!important; inset:0; }
+.gallery-photo { padding:10px; border:0; background:#e8e3d7; box-shadow:0 24px 42px #0006; cursor:pointer; user-select:none; -webkit-user-select:none; }
+.gallery-photo img { width:100%; height:100%; object-fit:contain; pointer-events:none; }
+.gallery-photo:focus-visible { outline:3px solid #ef8b79; outline-offset:6px; }
+.gallery-instruction { margin:0 0 26px; text-align:center; color:#b9c1b5; font-size:12px; }
+.work-immersive .work-piece { display:block; min-height:0; padding:0; border:0; }
+.work-immersive .work-slide-copy { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:12px 48px; padding:22px 0; border-top:1px solid #435047; align-items:start; }
+.work-immersive .work-slide-copy h3 { color:var(--paper); font-size:clamp(30px,3.1vw,48px); line-height:1.1; margin:8px 0 0; }
+.work-immersive .work-slide-copy p { color:#c3c9be; font-size:16px; line-height:1.6; max-width:54ch; margin:0; }
+.work-immersive .work-slide-copy .work-slide-medium { color:#f08a78; font-size:10px; }
+.work-immersive .work-slide-link, .work-immersive .work-source, .gallery-detail { color:#ef8b79; }
+.gallery-detail { background:none; border:0; border-bottom:1px solid #725449; padding:0 0 5px; margin-top:16px; font:inherit; font-size:13px; cursor:pointer; }
+.work-immersive .gallery-actions { grid-column:2; display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
+.work-immersive .gallery-actions .work-source { margin:0; font-size:11px; }
+.work-immersive .gallery-actions .work-slide-link { margin:0; font-size:14px; }
+.work-immersive .work-carousel-footer { border-top:0; padding:0 0 16px; margin:0; grid-template-columns:minmax(0,1fr) auto auto; align-items:center; gap:24px; }
+.work-immersive .work-carousel-caption { color:#c3c9be; font-variant-numeric:tabular-nums; grid-column:2; grid-row:1; }
+.work-immersive .work-carousel-controls { grid-column:3; grid-row:1; }
+.work-immersive .work-carousel-controls button { color:var(--paper); border-color:#526157; }
+.work-immersive .work-carousel-controls button:hover:not(:disabled) { background:#d05a4d; color:#fff; }
+.work-immersive .work-example-note { color:#b9c1b5; }
+.work-immersive .work-contact { color:var(--paper); }
+.skin-options { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:6px; }
+.tattoo-tools .skin-options button { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; background:transparent; color:var(--paper); border:1px solid #506055; font:inherit; font-size:12px; padding:6px; cursor:pointer; }
+.skin-options i { flex-shrink:0; width:22px; height:22px; border-radius:50%; background:var(--skin); box-shadow:inset 0 0 0 1px #fff4; }
+.tattoo-tools .skin-options button[aria-pressed="true"] { border-color:var(--artist-red); background:#d05a4d24; }
+.tattoo-tools .skin-options button:hover { border-color:#ef8b79; }
+@media (min-width:1500px) { .gallery-space { height:600px; } }
+@media (max-width:800px) {
+ .work-immersive .work-tabs { gap:18px; }
+ .gallery-space { height:460px; width:calc(100% + 48px); margin-left:-24px; }
+ .work-immersive .work-slide-copy { gap:12px 28px; }
+
+ .work-immersive .work-carousel-footer { gap:12px; }
+}
+@media (max-width:520px) {
+ .work-immersive .work-heading { margin-bottom:24px; }
+ .work-immersive .work-heading > p { max-width:36ch; }
+ .work-immersive .work-tabs { flex-wrap:nowrap; overflow-x:auto; gap:20px; padding-bottom:0; scrollbar-width:thin; }
+ .work-immersive .work-tabs button { white-space:nowrap; flex-shrink:0; }
+ .gallery-space { height:410px; }
+ .gallery-instruction { font-size:10px; margin-bottom:18px; }
+ .work-immersive .work-slide-copy { display:block; padding:18px 0; }
+ .work-immersive .work-slide-copy h3 { font-size:36px; margin-bottom:16px; }
+ .work-immersive .work-slide-copy p { max-width:100%; }
+ .work-immersive .gallery-actions { margin-top:24px; display:flex; flex-wrap:wrap; gap:18px; }
+ .work-immersive .work-carousel-footer { grid-template-columns:1fr auto; gap:8px 16px; }
+ .work-immersive .work-carousel-caption { grid-column:1; grid-row:2; }
+ .work-immersive .work-carousel-controls { grid-row:2; }
+ .work-immersive .gallery-instruction { grid-column:1 / -1; }
+ .work-immersive .work-carousel-controls { grid-column:2; }
+}
+@media (prefers-reduced-motion:reduce) { .gallery-photo { transition:none; } }
+.work-immersive .work-slide-copy .work-slide-medium { margin-top:14px; }
+
+.gallery-detail { display:inline-flex; align-items:center; gap:12px; min-height:44px; }
+.gallery-detail svg { width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:1.5; }
+
+/* Keep navigation by the photographs and consolidate the project information. */
+.work-immersive .gallery-instruction { margin:0; text-align:left; grid-column:1; grid-row:1; }
+.work-immersive .work-slide-copy > div:first-child { grid-column:1; grid-row:1 / 3; }
+.work-immersive .work-slide-copy h3 { margin:0; }
+.work-immersive .gallery-actions .gallery-detail { margin:0; }
+.gallery-social { display:flex; justify-content:space-between; align-items:center; gap:24px; border-top:1px solid #435047; padding-top:20px; }
+.work-immersive .gallery-social .work-example-note { margin:0; max-width:54ch; font-size:13px; }
+.work-immersive .gallery-social .work-contact { margin:0; flex-shrink:0; align-self:center; }
+@media (max-width:800px) {
+ .work.work-immersive { padding-block:40px; }
+ .gallery-social { align-items:flex-start; flex-direction:column; gap:12px; }
+ .work-immersive .gallery-social .work-contact { align-self:flex-start; }
+}
+@media (max-width:520px) {
+ .work-immersive .gallery-instruction { grid-column:1 / -1; font-size:11px; }
+ .work-immersive .gallery-actions { margin-top:16px; gap:8px 20px; }
+ .work-immersive .work-slide-copy .work-slide-medium { margin:8px 0 12px; }
+}
+
+/* Navigation remains visible and usable without a drag gesture. */
+.work-immersive .work-carousel-controls [data-work-play] { width:auto; min-width:98px; padding:0 14px; font:500 14px/1.2 'Syne',sans-serif; }
+.work-immersive .work-carousel-controls button { min-width:44px; min-height:44px; }
+.work-immersive .work-carousel-caption { display:block; }
+@media (max-width:600px) {
+ .work-immersive .work-tabs { flex-wrap:wrap; gap:4px 18px; overflow:visible; }
+ .work-immersive .work-tabs button { min-height:44px; font-size:14px; white-space:normal; }
+ .gallery-space { height:390px; }
+ .work-immersive .work-carousel-footer { gap:12px; padding-bottom:18px; }
+ .work-immersive .gallery-instruction { font-size:13px; line-height:1.5; }
+ .work-immersive .work-carousel-caption { grid-column:1; grid-row:2; font-size:14px; }
+ .work-immersive .work-carousel-controls { grid-column:2; grid-row:2; }
+ .work-immersive .work-slide-copy h3 { font-size:32px; }
+}

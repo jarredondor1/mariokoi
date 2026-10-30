@@ -1,0 +1,102 @@
+/* Shared action typography, irrespective of link or button semantics. */
+.work-immersive .gallery-actions :is(.gallery-detail,.work-slide-link,.work-source) {
+ display:inline-flex; align-items:center; gap:10px; min-height:44px; margin:0; padding:0 0 4px;
+ border:0; border-bottom:1px solid #725449; background:transparent; color:#ef8b79;
+ font:500 14px/1.4 'Syne',sans-serif; text-decoration:none; cursor:pointer;
+}
+.work-immersive .gallery-actions :is(.gallery-detail,.work-slide-link,.work-source):hover { color:var(--paper); border-color:var(--paper); }
+.work-immersive .gallery-actions svg { width:17px; height:17px; }
+
+/* A working composition table: neutral canvas, paper studies, one editing rail. */
+.tattoo-lab { padding-block:40px 40px; }
+.tattoo-heading { margin-bottom:28px; gap:32px; }
+.tattoo-heading h2 { font-size:clamp(46px,5.2vw,76px); letter-spacing:-.035em; margin-bottom:12px; }
+.tattoo-heading h2 em { color:#df7666; font-weight:400; }
+.tattoo-heading .tattoo-disclaimer { max-width:32ch; }
+.tattoo-workspace { grid-template-columns:minmax(0,1fr) clamp(370px,33vw,470px); height:clamp(590px,calc(100svh - 240px),740px); border:0; }
+.tattoo-stage { border:1px solid #c2bba9; }
+.tattoo-views { top:20px; left:20px; gap:0; border:1px solid #a6a692; }
+.tattoo-views button { background:#e8e3d7; border:0; border-right:1px solid #b5b5a2; padding:10px 16px; }
+.tattoo-views button:last-child { border-right:0; }
+.tattoo-views button:hover { background:#f3eee3; }
+.tattoo-help { bottom:16px; font-size:11px; padding:7px 12px; }
+.tattoo-tools { padding:22px 26px; gap:14px; border:1px solid #405048; border-left:0; background:#12251d; }
+.tattoo-tool-heading h3 { margin:0 0 8px; font:400 32px/1.15 'Bodoni Moda',serif; letter-spacing:-.02em; color:var(--paper); }
+.tattoo-tool-heading .tattoo-guide { font-size:13px; line-height:1.5; max-width:40ch; }
+.tattoo-tool-tabs { display:flex; border-bottom:1px solid #526155; gap:28px; }
+.tattoo-tool-tabs button { color:#c3c9be; background:none; border:0; border-bottom:2px solid transparent; padding:10px 0; min-height:44px; font-size:14px; }
+.tattoo-tool-tabs button[aria-selected="true"] { color:#f08a78; border-color:#f08a78; }
+.tattoo-tool-tabs button:hover { color:var(--paper); }
+.tattoo-tool-panel { display:flex; flex-direction:column; gap:18px; }
+.tattoo-tool-panel[hidden] { display:none; }
+.tattoo-tools .tattoo-catalog-label { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.tattoo-tools .tattoo-designs { gap:8px; }
+.tattoo-tools .tattoo-designs button { padding:0; border:1px solid #cabfa9; background:var(--paper); color:#26332b; }
+.tattoo-tools .tattoo-designs button:hover { border-color:#f08a78; transform:translateY(-3px); }
+.tattoo-tools .tattoo-designs img { height:80px; padding:10px; background:var(--paper); }
+.tattoo-tools .tattoo-designs span { display:flex; justify-content:space-between; align-items:center; gap:4px; min-height:34px; padding:6px; font-size:10px; text-align:left; }
+.tattoo-designs span b { font-size:20px; line-height:1; font-weight:400; color:#a33f35; }
+.tattoo-tools .tattoo-upload { gap:8px 12px; padding-bottom:16px; border-bottom:1px solid #405548; }
+.tattoo-tools .tattoo-upload legend { margin-bottom:8px; }
+.tattoo-tools .tattoo-upload button { background:transparent; border-style:dashed; color:#f3a99e; font-size:12px; }
+.tattoo-tools .tattoo-upload button:hover { background:#d05a4d24; }
+.tattoo-adjust { gap:4px 20px; }
+.tattoo-adjust label { font-size:13px; }
+.tattoo-tools .tattoo-composition-list { display:flex; flex-wrap:wrap; gap:6px; }
+.tattoo-tools .tattoo-composition-item { grid-template-columns:minmax(0,1fr) 32px; min-width:126px; max-width:100%; flex:1 1 42%; }
+.tattoo-feedback { font-size:11px; min-height:0; }
+.tattoo-actions { padding-top:12px; margin-top:auto; border-top:1px solid #405548; }
+.tattoo-quote-bridge { gap:24px; }
+@media (max-width:1050px) and (min-width:801px) {
+ .tattoo-workspace { grid-template-columns:minmax(0,1fr) 360px; }
+ .tattoo-tools { padding:20px; }
+}
+@media (max-width:800px) {
+ .tattoo-lab { padding-block:40px; }
+ .tattoo-heading h2 { font-size:clamp(42px,7vw,64px); }
+ .tattoo-heading .tattoo-disclaimer { margin-top:12px; max-width:100%; }
+ .tattoo-workspace { grid-template-columns:1fr; height:auto; }
+ .tattoo-stage { position:sticky; top:0; height:44svh; min-height:300px; max-height:410px; z-index:2; }
+ .tattoo-tools { border-left:1px solid #405048; padding:22px; overflow:visible; }
+ .tattoo-tool-heading h3 { font-size:30px; }
+ .tattoo-tools .tattoo-designs img { height:86px; }
+ .tattoo-help { bottom:8px; font-size:10px; max-width:94%; }
+ .tattoo-views { top:12px; left:12px; }
+ .tattoo-views button { padding:9px 12px; }
+ .tattoo-tool-tabs { gap:28px; }
+ .tattoo-tool-panel { min-height:0; }
+}
+@media (prefers-reduced-motion:reduce) { .tattoo-tools .tattoo-designs button:hover { transform:none; } }
+
+.tattoo-views { flex-wrap:wrap; max-width:calc(100% - 24px); }
+.tattoo-views button { min-height:44px; }
+.tattoo-selected-label { position:absolute; left:20px; top:78px; z-index:3; margin:0; padding:8px 12px; max-width:calc(100% - 40px); background:#26382e; color:#fff8ee; font-size:13px; line-height:1.4; pointer-events:none; }
+.tattoo-selection-frame { position:absolute; pointer-events:none; border:2px dashed #94392e; box-shadow:0 0 0 1px #fff8ee; z-index:2; }
+.tattoo-selection-frame[hidden] { display:none; }
+.tattoo-stage { overflow:hidden; }
+.tattoo-tools .tattoo-composition-item.is-selected { outline:2px solid #f3a99e; outline-offset:2px; }
+.tattoo-tools .tattoo-composition-item [data-remove-tattoo] { min-width:44px; min-height:44px; }
+.tattoo-tools .tattoo-composition-item { grid-template-columns:minmax(0,1fr) 44px; }
+@media (max-width:800px) {
+ .tattoo-views { right:12px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .tattoo-views button { font-size:12px; }
+ .tattoo-selected-label { top:112px; left:12px; padding:5px 9px; font-size:12px; }
+}
+
+@media (max-width:800px) {
+ .tattoo-stage { height:58svh; min-height:440px; max-height:520px; }
+ .tattoo-views { inset:0 0 auto; max-width:none; border:0; border-bottom:1px solid #a6a692; }
+ .tattoo-views button { min-height:44px; padding:8px; }
+ .tattoo-viewport { top:90px; bottom:32px; }
+ .tattoo-selected-label { top:auto; bottom:42px; }
+ .tattoo-help { bottom:2px; margin:0; }
+}
+
+/* Clear tool destinations with a visible selected state and plain-language scope. */
+.tattoo-tool-tabs { display:grid; grid-template-columns:1fr 1fr; gap:8px; border:0; }
+.tattoo-tool-tabs button { display:flex; flex-direction:column; align-items:flex-start; justify-content:center; gap:5px; min-height:72px; padding:12px; border:1px solid #6b7c70; color:#e8e3d7; text-align:left; }
+.tattoo-tool-tabs button span { font-size:16px; font-weight:600; line-height:1.2; }
+.tattoo-tool-tabs button small { font-size:11px; line-height:1.4; font-weight:400; }
+.tattoo-tool-tabs button[aria-selected="true"] { background:#a94236; color:#fff8ee; border-color:#f3a99e; }
+.tattoo-tool-tabs button:hover { border-color:#f3a99e; }
+.tattoo-tool-tabs button:focus-visible { outline:2px solid #fff8ee; outline-offset:3px; }

@@ -1,0 +1,11 @@
+/* One translucent reading surface above the continuous, fixed koi scene. */
+:root { --pond-reading-surface: #0a1914e8; }
+.about.artist-room,
+.work.work-immersive,
+.tattoo-lab,
+.studio-footer {
+  background: var(--pond-reading-surface);
+}
+
+/* Keep the editing rail readable without painting over the shared water. */
+.tattoo-tools { background: #12251d38; }
